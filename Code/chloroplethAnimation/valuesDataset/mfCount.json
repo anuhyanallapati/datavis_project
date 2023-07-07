@@ -1,0 +1,2442 @@
+{
+   "1001": {
+      "males": 51,
+      "females": 25
+   },
+   "1002": {
+      "males": 16,
+      "females": 9
+   },
+   "1003": {
+      "males": 73,
+      "females": 29
+   },
+   "1004": {
+      "males": 44,
+      "females": 21
+   },
+   "1005": {
+      "males": 30,
+      "females": 35
+   },
+   "1006": {
+      "males": 37,
+      "females": 8
+   },
+   "1007": {
+      "males": 56,
+      "females": 25
+   },
+   "1008": {
+      "males": 111,
+      "females": 48
+   },
+   "1009": {
+      "males": 96,
+      "females": 30
+   },
+   "1010": {
+      "males": 101,
+      "females": 78
+   },
+   "1011": {
+      "males": 92,
+      "females": 63
+   },
+   "1012": {
+      "males": 112,
+      "females": 57
+   },
+   "1013": {
+      "males": 509,
+      "females": 354
+   },
+   "1014": {
+      "males": 44,
+      "females": 28
+   },
+   "1015": {
+      "males": 95,
+      "females": 42
+   },
+   "1016": {
+      "males": 28,
+      "females": 7
+   },
+   "1017": {
+      "males": 79,
+      "females": 30
+   },
+   "1018": {
+      "males": 116,
+      "females": 52
+   },
+   "1019": {
+      "males": 22,
+      "females": 23
+   },
+   "1020": {
+      "males": 53,
+      "females": 24
+   },
+   "1021": {
+      "males": 75,
+      "females": 12
+   },
+   "1022": {
+      "males": 16,
+      "females": 7
+   },
+   "1023": {
+      "males": 19,
+      "females": 19
+   },
+   "1024": {
+      "males": 77,
+      "females": 41
+   },
+   "1025": {
+      "males": 34,
+      "females": 7
+   },
+   "1026": {
+      "males": 41,
+      "females": 39
+   },
+   "1027": {
+      "males": 51,
+      "females": 24
+   },
+   "1028": {
+      "males": 46,
+      "females": 33
+   },
+   "1029": {
+      "males": 45,
+      "females": 15
+   },
+   "1030": {
+      "males": 61,
+      "females": 15
+   },
+   "1031": {
+      "males": 52,
+      "females": 37
+   },
+   "1032": {
+      "males": 25,
+      "females": 41
+   },
+   "1033": {
+      "males": 39,
+      "females": 31
+   },
+   "1101": {
+      "males": 96,
+      "females": 69
+   },
+   "1102": {
+      "males": 31,
+      "females": 12
+   },
+   "1103": {
+      "males": 20,
+      "females": 10
+   },
+   "1104": {
+      "males": 110,
+      "females": 40
+   },
+   "1105": {
+      "males": 60,
+      "females": 38
+   },
+   "1106": {
+      "males": 52,
+      "females": 16
+   },
+   "1107": {
+      "males": 33,
+      "females": 32
+   },
+   "1108": {
+      "males": 124,
+      "females": 29
+   },
+   "1109": {
+      "males": 32,
+      "females": 12
+   },
+   "1110": {
+      "males": 27,
+      "females": 10
+   },
+   "1111": {
+      "males": 54,
+      "females": 26
+   },
+   "1112": {
+      "males": 24,
+      "females": 9
+   },
+   "1113": {
+      "males": 45,
+      "females": 35
+   },
+   "1114": {
+      "males": 29,
+      "females": 25
+   },
+   "1115": {
+      "males": 53,
+      "females": 31
+   },
+   "1116": {
+      "males": 59,
+      "females": 35
+   },
+   "1117": {
+      "males": 60,
+      "females": 17
+   },
+   "1118": {
+      "males": 37,
+      "females": 23
+   },
+   "1119": {
+      "males": 36,
+      "females": 24
+   },
+   "1120": {
+      "males": 31,
+      "females": 17
+   },
+   "1121": {
+      "males": 32,
+      "females": 14
+   },
+   "1122": {
+      "males": 36,
+      "females": 35
+   },
+   "1123": {
+      "males": 42,
+      "females": 16
+   },
+   "1124": {
+      "males": 30,
+      "females": 13
+   },
+   "1126": {
+      "males": 63,
+      "females": 22
+   },
+   "1127": {
+      "males": 50,
+      "females": 27
+   },
+   "1129": {
+      "males": 46,
+      "females": 27
+   },
+   "1130": {
+      "males": 15,
+      "females": 6
+   },
+   "1131": {
+      "males": 23,
+      "females": 3
+   },
+   "1132": {
+      "males": 9,
+      "females": 1
+   },
+   "1201": {
+      "males": 45,
+      "females": 10
+   },
+   "1202": {
+      "males": 28,
+      "females": 21
+   },
+   "1203": {
+      "males": 55,
+      "females": 10
+   },
+   "1204": {
+      "males": 51,
+      "females": 10
+   },
+   "1205": {
+      "males": 88,
+      "females": 16
+   },
+   "1206": {
+      "males": 24,
+      "females": 8
+   },
+   "1207": {
+      "males": 22,
+      "females": 0
+   },
+   "1208": {
+      "males": 39,
+      "females": 7
+   },
+   "1209": {
+      "males": 7,
+      "females": 11
+   },
+   "1210": {
+      "males": 34,
+      "females": 0
+   },
+   "1211": {
+      "males": 54,
+      "females": 0
+   },
+   "1212": {
+      "males": 14,
+      "females": 0
+   },
+   "1213": {
+      "males": 36,
+      "females": 0
+   },
+   "1214": {
+      "males": 21,
+      "females": 7
+   },
+   "1215": {
+      "males": 31,
+      "females": 4
+   },
+   "1216": {
+      "males": 10,
+      "females": 3
+   },
+   "1217": {
+      "males": 11,
+      "females": 4
+   },
+   "1218": {
+      "males": 34,
+      "females": 0
+   },
+   "1219": {
+      "males": 74,
+      "females": 28
+   },
+   "1220": {
+      "males": 42,
+      "females": 0
+   },
+   "1221": {
+      "males": 14,
+      "females": 7
+   },
+   "1222": {
+      "males": 17,
+      "females": 2
+   },
+   "1301": {
+      "males": 333,
+      "females": 142
+   },
+   "1302": {
+      "males": 272,
+      "females": 64
+   },
+   "1303": {
+      "males": 333,
+      "females": 83
+   },
+   "1304": {
+      "males": 149,
+      "females": 30
+   },
+   "1305": {
+      "males": 57,
+      "females": 12
+   },
+   "1306": {
+      "males": 321,
+      "females": 86
+   },
+   "1307": {
+      "males": 176,
+      "females": 37
+   },
+   "1308": {
+      "males": 203,
+      "females": 67
+   },
+   "1309": {
+      "males": 254,
+      "females": 51
+   },
+   "1310": {
+      "males": 126,
+      "females": 29
+   },
+   "1311": {
+      "males": 67,
+      "females": 0
+   },
+   "1312": {
+      "males": 179,
+      "females": 48
+   },
+   "1313": {
+      "males": 126,
+      "females": 38
+   },
+   "1314": {
+      "males": 118,
+      "females": 27
+   },
+   "1315": {
+      "males": 104,
+      "females": 16
+   },
+   "1316": {
+      "males": 287,
+      "females": 80
+   },
+   "1317": {
+      "males": 81,
+      "females": 21
+   },
+   "1318": {
+      "males": 160,
+      "females": 76
+   },
+   "1319": {
+      "males": 252,
+      "females": 139
+   },
+   "1320": {
+      "males": 74,
+      "females": 25
+   },
+   "1321": {
+      "males": 152,
+      "females": 17
+   },
+   "1322": {
+      "males": 154,
+      "females": 5
+   },
+   "1323": {
+      "males": 80,
+      "females": 6
+   },
+   "1324": {
+      "males": 462,
+      "females": 145
+   },
+   "1325": {
+      "males": 96,
+      "females": 16
+   },
+   "1326": {
+      "males": 190,
+      "females": 119
+   },
+   "1327": {
+      "males": 196,
+      "females": 66
+   },
+   "1328": {
+      "males": 150,
+      "females": 9
+   },
+   "1329": {
+      "males": 136,
+      "females": 43
+   },
+   "1330": {
+      "males": 275,
+      "females": 76
+   },
+   "1331": {
+      "males": 169,
+      "females": 53
+   },
+   "1333": {
+      "males": 162,
+      "females": 61
+   },
+   "1334": {
+      "males": 134,
+      "females": 5
+   },
+   "1335": {
+      "males": 64,
+      "females": 19
+   },
+   "1336": {
+      "males": 174,
+      "females": 42
+   },
+   "1337": {
+      "males": 84,
+      "females": 4
+   },
+   "1338": {
+      "males": 83,
+      "females": 0
+   },
+   "1339": {
+      "males": 155,
+      "females": 13
+   },
+   "1340": {
+      "males": 45,
+      "females": 13
+   },
+   "1341": {
+      "males": 152,
+      "females": 18
+   },
+   "1342": {
+      "males": 95,
+      "females": 5
+   },
+   "1343": {
+      "males": 229,
+      "females": 34
+   },
+   "1344": {
+      "males": 153,
+      "females": 35
+   },
+   "1345": {
+      "males": 67,
+      "females": 15
+   },
+   "1346": {
+      "males": 204,
+      "females": 44
+   },
+   "1347": {
+      "males": 133,
+      "females": 48
+   },
+   "1348": {
+      "males": 295,
+      "females": 129
+   },
+   "1349": {
+      "males": 116,
+      "females": 42
+   },
+   "1350": {
+      "males": 158,
+      "females": 82
+   },
+   "1351": {
+      "males": 219,
+      "females": 45
+   },
+   "1352": {
+      "males": 130,
+      "females": 4
+   },
+   "1353": {
+      "males": 137,
+      "females": 63
+   },
+   "1354": {
+      "males": 164,
+      "females": 90
+   },
+   "1355": {
+      "males": 139,
+      "females": 42
+   },
+   "1356": {
+      "males": 106,
+      "females": 41
+   },
+   "1357": {
+      "males": 131,
+      "females": 35
+   },
+   "1358": {
+      "males": 194,
+      "females": 51
+   },
+   "1359": {
+      "males": 99,
+      "females": 11
+   },
+   "1360": {
+      "males": 116,
+      "females": 3
+   },
+   "1361": {
+      "males": 161,
+      "females": 33
+   },
+   "1362": {
+      "males": 127,
+      "females": 62
+   },
+   "1363": {
+      "males": 186,
+      "females": 52
+   },
+   "1364": {
+      "males": 67,
+      "females": 5
+   },
+   "1365": {
+      "males": 74,
+      "females": 20
+   },
+   "1366": {
+      "males": 216,
+      "females": 18
+   },
+   "1367": {
+      "males": 53,
+      "females": 13
+   },
+   "1368": {
+      "males": 127,
+      "females": 59
+   },
+   "1369": {
+      "males": 61,
+      "females": 16
+   },
+   "1370": {
+      "males": 104,
+      "females": 9
+   },
+   "1371": {
+      "males": 77,
+      "females": 2
+   },
+   "1373": {
+      "males": 70,
+      "females": 24
+   },
+   "1374": {
+      "males": 42,
+      "females": 9
+   },
+   "1375": {
+      "males": 19,
+      "females": 3
+   },
+   "1401": {
+      "males": 78,
+      "females": 43
+   },
+   "1402": {
+      "males": 69,
+      "females": 26
+   },
+   "1403": {
+      "males": 92,
+      "females": 59
+   },
+   "1404": {
+      "males": 104,
+      "females": 39
+   },
+   "1405": {
+      "males": 98,
+      "females": 68
+   },
+   "1406": {
+      "males": 104,
+      "females": 90
+   },
+   "1407": {
+      "males": 79,
+      "females": 28
+   },
+   "1408": {
+      "males": 53,
+      "females": 30
+   },
+   "1409": {
+      "males": 45,
+      "females": 23
+   },
+   "1410": {
+      "males": 67,
+      "females": 44
+   },
+   "1411": {
+      "males": 84,
+      "females": 31
+   },
+   "1412": {
+      "males": 75,
+      "females": 44
+   },
+   "1413": {
+      "males": 72,
+      "females": 53
+   },
+   "1414": {
+      "males": 41,
+      "females": 30
+   },
+   "1415": {
+      "males": 43,
+      "females": 24
+   },
+   "1416": {
+      "males": 47,
+      "females": 36
+   },
+   "1417": {
+      "males": 95,
+      "females": 39
+   },
+   "1418": {
+      "males": 56,
+      "females": 34
+   },
+   "1419": {
+      "males": 74,
+      "females": 20
+   },
+   "1420": {
+      "males": 56,
+      "females": 31
+   },
+   "1423": {
+      "males": 65,
+      "females": 32
+   },
+   "1501": {
+      "males": 96,
+      "females": 102
+   },
+   "1502": {
+      "males": 38,
+      "females": 18
+   },
+   "1503": {
+      "males": 33,
+      "females": 22
+   },
+   "1504": {
+      "males": 85,
+      "females": 74
+   },
+   "1505": {
+      "males": 157,
+      "females": 89
+   },
+   "1506": {
+      "males": 23,
+      "females": 1
+   },
+   "1507": {
+      "males": 23,
+      "females": 8
+   },
+   "1508": {
+      "males": 24,
+      "females": 4
+   },
+   "1509": {
+      "males": 121,
+      "females": 80
+   },
+   "1513": {
+      "males": 9,
+      "females": 10
+   },
+   "1514": {
+      "males": 23,
+      "females": 7
+   },
+   "1515": {
+      "males": 22,
+      "females": 9
+   },
+   "1601": {
+      "males": 37,
+      "females": 30
+   },
+   "1602": {
+      "males": 109,
+      "females": 68
+   },
+   "1603": {
+      "males": 183,
+      "females": 54
+   },
+   "1604": {
+      "males": 83,
+      "females": 15
+   },
+   "1606": {
+      "males": 96,
+      "females": 18
+   },
+   "1607": {
+      "males": 113,
+      "females": 54
+   },
+   "1608": {
+      "males": 76,
+      "females": 27
+   },
+   "1609": {
+      "males": 79,
+      "females": 42
+   },
+   "1610": {
+      "males": 50,
+      "females": 24
+   },
+   "1611": {
+      "males": 113,
+      "females": 72
+   },
+   "1612": {
+      "males": 142,
+      "females": 66
+   },
+   "1613": {
+      "males": 35,
+      "females": 21
+   },
+   "1614": {
+      "males": 155,
+      "females": 40
+   },
+   "1617": {
+      "males": 57,
+      "females": 17
+   },
+   "1618": {
+      "males": 92,
+      "females": 51
+   },
+   "1619": {
+      "males": 54,
+      "females": 36
+   },
+   "1620": {
+      "males": 227,
+      "females": 92
+   },
+   "1621": {
+      "males": 76,
+      "females": 21
+   },
+   "1622": {
+      "males": 88,
+      "females": 64
+   },
+   "1711": {
+      "males": 95,
+      "females": 58
+   },
+   "1713": {
+      "males": 734,
+      "females": 719
+   },
+   "1714": {
+      "males": 352,
+      "females": 304
+   },
+   "1715": {
+      "males": 62,
+      "females": 80
+   },
+   "1716": {
+      "males": 108,
+      "females": 144
+   },
+   "1717": {
+      "males": 56,
+      "females": 16
+   },
+   "1718": {
+      "males": 76,
+      "females": 58
+   },
+   "1719": {
+      "males": 73,
+      "females": 36
+   },
+   "1720": {
+      "males": 112,
+      "females": 47
+   },
+   "1721": {
+      "males": 103,
+      "females": 55
+   },
+   "1722": {
+      "males": 46,
+      "females": 37
+   },
+   "1723": {
+      "males": 124,
+      "females": 57
+   },
+   "1724": {
+      "males": 92,
+      "females": 49
+   },
+   "1725": {
+      "males": 18,
+      "females": 28
+   },
+   "1726": {
+      "males": 73,
+      "females": 52
+   },
+   "1727": {
+      "males": 45,
+      "females": 47
+   },
+   "1728": {
+      "males": 27,
+      "females": 23
+   },
+   "1729": {
+      "males": 41,
+      "females": 47
+   },
+   "1730": {
+      "males": 76,
+      "females": 43
+   },
+   "1731": {
+      "males": 142,
+      "females": 148
+   },
+   "1732": {
+      "males": 28,
+      "females": 31
+   },
+   "1733": {
+      "males": 28,
+      "females": 12
+   },
+   "1734": {
+      "males": 11,
+      "females": 6
+   },
+   "1735": {
+      "males": 32,
+      "females": 50
+   },
+   "1736": {
+      "males": 13,
+      "females": 15
+   },
+   "1737": {
+      "males": 40,
+      "females": 18
+   },
+   "1738": {
+      "males": 33,
+      "females": 10
+   },
+   "1739": {
+      "males": 25,
+      "females": 18
+   },
+   "1740": {
+      "males": 21,
+      "females": 24
+   },
+   "1741": {
+      "males": 8,
+      "females": 13
+   },
+   "1742": {
+      "males": 6,
+      "females": 4
+   },
+   "1801": {
+      "males": 24,
+      "females": 17
+   },
+   "1802": {
+      "males": 77,
+      "females": 46
+   },
+   "1803": {
+      "males": 102,
+      "females": 31
+   },
+   "1804": {
+      "males": 40,
+      "females": 16
+   },
+   "1805": {
+      "males": 29,
+      "females": 16
+   },
+   "1806": {
+      "males": 40,
+      "females": 22
+   },
+   "1807": {
+      "males": 73,
+      "females": 42
+   },
+   "1809": {
+      "males": 15,
+      "females": 12
+   },
+   "1810": {
+      "males": 29,
+      "females": 20
+   },
+   "1811": {
+      "males": 22,
+      "females": 8
+   },
+   "1812": {
+      "males": 25,
+      "females": 22
+   },
+   "1813": {
+      "males": 22,
+      "females": 6
+   },
+   "1815": {
+      "males": 41,
+      "females": 16
+   },
+   "1816": {
+      "males": 21,
+      "females": 5
+   },
+   "1817": {
+      "males": 17,
+      "females": 5
+   },
+   "1818": {
+      "males": 23,
+      "females": 15
+   },
+   "1819": {
+      "males": 14,
+      "females": 11
+   },
+   "1820": {
+      "males": 8,
+      "females": 9
+   },
+   "1821": {
+      "males": 23,
+      "females": 8
+   },
+   "1822": {
+      "males": 16,
+      "females": 1
+   },
+   "1823": {
+      "males": 18,
+      "females": 9
+   },
+   "1824": {
+      "males": 9,
+      "females": 7
+   },
+   "1901": {
+      "males": 12,
+      "females": 20
+   },
+   "1902": {
+      "males": 1,
+      "females": 4
+   },
+   "2001": {
+      "males": 97,
+      "females": 41
+   },
+   "2002": {
+      "males": 28,
+      "females": 6
+   },
+   "2003": {
+      "males": 42,
+      "females": 14
+   },
+   "2005": {
+      "males": 50,
+      "females": 7
+   },
+   "2006": {
+      "males": 40,
+      "females": 14
+   },
+   "2009": {
+      "males": 29,
+      "females": 25
+   },
+   "2010": {
+      "males": 29,
+      "females": 16
+   },
+   "2101": {
+      "males": 26,
+      "females": 63
+   },
+   "2102": {
+      "males": 11,
+      "females": 12
+   },
+   "2103": {
+      "males": 19,
+      "females": 17
+   },
+   "2201": {
+      "males": 196,
+      "females": 142
+   },
+   "2202": {
+      "males": 94,
+      "females": 64
+   },
+   "2203": {
+      "males": 38,
+      "females": 31
+   },
+   "2204": {
+      "males": 29,
+      "females": 25
+   },
+   "2205": {
+      "males": 43,
+      "females": 47
+   },
+   "2206": {
+      "males": 57,
+      "females": 31
+   },
+   "2208": {
+      "males": 90,
+      "females": 55
+   },
+   "2209": {
+      "males": 29,
+      "females": 22
+   },
+   "2210": {
+      "males": 62,
+      "females": 30
+   },
+   "2211": {
+      "males": 35,
+      "females": 40
+   },
+   "2212": {
+      "males": 47,
+      "females": 37
+   },
+   "2213": {
+      "males": 41,
+      "females": 21
+   },
+   "2214": {
+      "males": 39,
+      "females": 17
+   },
+   "2215": {
+      "males": 28,
+      "females": 25
+   },
+   "2216": {
+      "males": 35,
+      "females": 12
+   },
+   "2217": {
+      "males": 66,
+      "females": 34
+   },
+   "2218": {
+      "males": 50,
+      "females": 48
+   },
+   "2219": {
+      "males": 47,
+      "females": 38
+   },
+   "2221": {
+      "males": 23,
+      "females": 7
+   },
+   "2223": {
+      "males": 31,
+      "females": 24
+   },
+   "2224": {
+      "males": 48,
+      "females": 43
+   },
+   "2301": {
+      "males": 153,
+      "females": 41
+   },
+   "2302": {
+      "males": 46,
+      "females": 22
+   },
+   "2303": {
+      "males": 90,
+      "females": 27
+   },
+   "2304": {
+      "males": 53,
+      "females": 9
+   },
+   "2305": {
+      "males": 32,
+      "females": 6
+   },
+   "2306": {
+      "males": 26,
+      "females": 7
+   },
+   "2307": {
+      "males": 47,
+      "females": 7
+   },
+   "2308": {
+      "males": 43,
+      "females": 4
+   },
+   "2309": {
+      "males": 48,
+      "females": 11
+   },
+   "2310": {
+      "males": 73,
+      "females": 22
+   },
+   "2311": {
+      "males": 77,
+      "females": 20
+   },
+   "2312": {
+      "males": 38,
+      "females": 4
+   },
+   "2313": {
+      "males": 48,
+      "females": 13
+   },
+   "2314": {
+      "males": 69,
+      "females": 19
+   },
+   "2315": {
+      "males": 153,
+      "females": 42
+   },
+   "2316": {
+      "males": 71,
+      "females": 23
+   },
+   "2317": {
+      "males": 68,
+      "females": 10
+   },
+   "2318": {
+      "males": 83,
+      "females": 12
+   },
+   "2319": {
+      "males": 72,
+      "females": 36
+   },
+   "2320": {
+      "males": 105,
+      "females": 35
+   },
+   "2321": {
+      "males": 100,
+      "females": 9
+   },
+   "2322": {
+      "males": 49,
+      "females": 7
+   },
+   "2323": {
+      "males": 86,
+      "females": 25
+   },
+   "2324": {
+      "males": 78,
+      "females": 26
+   },
+   "2325": {
+      "males": 75,
+      "females": 29
+   },
+   "2326": {
+      "males": 84,
+      "females": 20
+   },
+   "2327": {
+      "males": 91,
+      "females": 25
+   },
+   "2328": {
+      "males": 91,
+      "females": 34
+   },
+   "2329": {
+      "males": 158,
+      "females": 21
+   },
+   "2330": {
+      "males": 88,
+      "females": 25
+   },
+   "2331": {
+      "males": 56,
+      "females": 17
+   },
+   "2332": {
+      "males": 119,
+      "females": 24
+   },
+   "2333": {
+      "males": 55,
+      "females": 29
+   },
+   "2334": {
+      "males": 66,
+      "females": 26
+   },
+   "2335": {
+      "males": 89,
+      "females": 19
+   },
+   "2336": {
+      "males": 87,
+      "females": 20
+   },
+   "2337": {
+      "males": 85,
+      "females": 36
+   },
+   "2338": {
+      "males": 100,
+      "females": 39
+   },
+   "2339": {
+      "males": 84,
+      "females": 19
+   },
+   "2340": {
+      "males": 80,
+      "females": 29
+   },
+   "2341": {
+      "males": 66,
+      "females": 13
+   },
+   "2342": {
+      "males": 96,
+      "females": 28
+   },
+   "2343": {
+      "males": 148,
+      "females": 58
+   },
+   "2344": {
+      "males": 225,
+      "females": 35
+   },
+   "2345": {
+      "males": 134,
+      "females": 60
+   },
+   "2346": {
+      "males": 129,
+      "females": 21
+   },
+   "2347": {
+      "males": 190,
+      "females": 70
+   },
+   "2348": {
+      "males": 61,
+      "females": 12
+   },
+   "2349": {
+      "males": 29,
+      "females": 6
+   },
+   "2350": {
+      "males": 165,
+      "females": 72
+   },
+   "2401": {
+      "males": 11,
+      "females": 38
+   },
+   "2402": {
+      "males": 12,
+      "females": 4
+   },
+   "2403": {
+      "males": 19,
+      "females": 43
+   },
+   "2404": {
+      "males": 26,
+      "females": 12
+   },
+   "2501": {
+      "males": 12,
+      "females": 9
+   },
+   "2502": {
+      "males": 17,
+      "females": 22
+   },
+   "2503": {
+      "males": 5,
+      "females": 5
+   },
+   "2504": {
+      "males": 8,
+      "females": 7
+   },
+   "2505": {
+      "males": 4,
+      "females": 4
+   },
+   "2506": {
+      "males": 2,
+      "females": 1
+   },
+   "2509": {
+      "males": 1,
+      "females": 1
+   },
+   "2601": {
+      "males": 35,
+      "females": 16
+   },
+   "2602": {
+      "males": 40,
+      "females": 21
+   },
+   "2603": {
+      "males": 55,
+      "females": 32
+   },
+   "2604": {
+      "males": 61,
+      "females": 33
+   },
+   "2605": {
+      "males": 75,
+      "females": 38
+   },
+   "2606": {
+      "males": 252,
+      "females": 103
+   },
+   "2607": {
+      "males": 67,
+      "females": 49
+   },
+   "2608": {
+      "males": 135,
+      "females": 58
+   },
+   "2609": {
+      "males": 70,
+      "females": 55
+   },
+   "2610": {
+      "males": 64,
+      "females": 48
+   },
+   "2611": {
+      "males": 89,
+      "females": 61
+   },
+   "2701": {
+      "males": 89,
+      "females": 51
+   },
+   "2901": {
+      "males": 112,
+      "females": 46
+   },
+   "2902": {
+      "males": 648,
+      "females": 286
+   },
+   "2903": {
+      "males": 132,
+      "females": 66
+   },
+   "2904": {
+      "males": 107,
+      "females": 82
+   },
+   "2905": {
+      "males": 146,
+      "females": 74
+   },
+   "2906": {
+      "males": 71,
+      "females": 72
+   },
+   "2907": {
+      "males": 82,
+      "females": 65
+   },
+   "2908": {
+      "males": 102,
+      "females": 33
+   },
+   "2909": {
+      "males": 118,
+      "females": 66
+   },
+   "2910": {
+      "males": 163,
+      "females": 97
+   },
+   "3001": {
+      "males": 103,
+      "females": 103
+   },
+   "3002": {
+      "males": 57,
+      "females": 61
+   },
+   "0101": {
+      "males": 143,
+      "females": 17
+   },
+   "0102": {
+      "males": 369,
+      "females": 72
+   },
+   "0103": {
+      "males": 4,
+      "females": 0
+   },
+   "0104": {
+      "males": 428,
+      "females": 125
+   },
+   "0105": {
+      "males": 339,
+      "females": 161
+   },
+   "0107": {
+      "males": 468,
+      "females": 226
+   },
+   "0108": {
+      "males": 555,
+      "females": 322
+   },
+   "0109": {
+      "males": 1703,
+      "females": 661
+   },
+   "0110": {
+      "males": 86,
+      "females": 73
+   },
+   "0111": {
+      "males": 138,
+      "females": 20
+   },
+   "0112": {
+      "males": 86,
+      "females": 0
+   },
+   "0113": {
+      "males": 283,
+      "females": 130
+   },
+   "0114": {
+      "males": 398,
+      "females": 98
+   },
+   "0115": {
+      "males": 252,
+      "females": 95
+   },
+   "0117": {
+      "males": 506,
+      "females": 103
+   },
+   "0118": {
+      "males": 174,
+      "females": 102
+   },
+   "0119": {
+      "males": 995,
+      "females": 522
+   },
+   "0120": {
+      "males": 902,
+      "females": 468
+   },
+   "0121": {
+      "males": 791,
+      "females": 549
+   },
+   "0123": {
+      "males": 101,
+      "females": 18
+   },
+   "0124": {
+      "males": 125,
+      "females": 46
+   },
+   "0125": {
+      "males": 819,
+      "females": 428
+   },
+   "0126": {
+      "males": 858,
+      "females": 469
+   },
+   "0127": {
+      "males": 314,
+      "females": 94
+   },
+   "0128": {
+      "males": 373,
+      "females": 190
+   },
+   "0129": {
+      "males": 306,
+      "females": 96
+   },
+   "0130": {
+      "males": 688,
+      "females": 285
+   },
+   "0131": {
+      "males": 380,
+      "females": 109
+   },
+   "0132": {
+      "males": 275,
+      "females": 130
+   },
+   "0133": {
+      "males": 77,
+      "females": 18
+   },
+   "0134": {
+      "males": 416,
+      "females": 248
+   },
+   "0136": {
+      "males": 128,
+      "females": 33
+   },
+   "0137": {
+      "males": 1295,
+      "females": 110
+   },
+   "0138": {
+      "males": 530,
+      "females": 66
+   },
+   "0139": {
+      "males": 46,
+      "females": 18
+   },
+   "0140": {
+      "males": 323,
+      "females": 38
+   },
+   "0141": {
+      "males": 22,
+      "females": 18
+   },
+   "0142": {
+      "males": 59,
+      "females": 65
+   },
+   "0143": {
+      "males": 1,
+      "females": 8
+   },
+   "0202": {
+      "males": 119,
+      "females": 59
+   },
+   "0203": {
+      "males": 187,
+      "females": 68
+   },
+   "0204": {
+      "males": 252,
+      "females": 108
+   },
+   "0205": {
+      "males": 230,
+      "females": 190
+   },
+   "0207": {
+      "males": 135,
+      "females": 59
+   },
+   "0210": {
+      "males": 180,
+      "females": 95
+   },
+   "0211": {
+      "males": 217,
+      "females": 117
+   },
+   "0215": {
+      "males": 92,
+      "females": 75
+   },
+   "0217": {
+      "males": 216,
+      "females": 117
+   },
+   "0219": {
+      "males": 77,
+      "females": 64
+   },
+   "0220": {
+      "males": 327,
+      "females": 112
+   },
+   "0221": {
+      "males": 118,
+      "females": 66
+   },
+   "0223": {
+      "males": 116,
+      "females": 96
+   },
+   "0301": {
+      "males": 287,
+      "females": 79
+   },
+   "0302": {
+      "males": 170,
+      "females": 32
+   },
+   "0303": {
+      "males": 110,
+      "females": 50
+   },
+   "0304": {
+      "males": 180,
+      "females": 70
+   },
+   "0305": {
+      "males": 98,
+      "females": 33
+   },
+   "0306": {
+      "males": 180,
+      "females": 40
+   },
+   "0307": {
+      "males": 47,
+      "females": 16
+   },
+   "0308": {
+      "males": 108,
+      "females": 69
+   },
+   "0309": {
+      "males": 102,
+      "females": 70
+   },
+   "0310": {
+      "males": 173,
+      "females": 89
+   },
+   "0311": {
+      "males": 148,
+      "females": 62
+   },
+   "0312": {
+      "males": 223,
+      "females": 61
+   },
+   "0313": {
+      "males": 179,
+      "females": 104
+   },
+   "0314": {
+      "males": 135,
+      "females": 49
+   },
+   "0315": {
+      "males": 127,
+      "females": 100
+   },
+   "0316": {
+      "males": 57,
+      "females": 48
+   },
+   "0317": {
+      "males": 142,
+      "females": 71
+   },
+   "0318": {
+      "males": 189,
+      "females": 114
+   },
+   "0319": {
+      "males": 109,
+      "females": 55
+   },
+   "0320": {
+      "males": 509,
+      "females": 222
+   },
+   "0321": {
+      "males": 95,
+      "females": 45
+   },
+   "0322": {
+      "males": 133,
+      "females": 112
+   },
+   "0323": {
+      "males": 179,
+      "females": 107
+   },
+   "0324": {
+      "males": 149,
+      "females": 80
+   },
+   "0325": {
+      "males": 112,
+      "females": 17
+   },
+   "0326": {
+      "males": 197,
+      "females": 118
+   },
+   "0327": {
+      "males": 36,
+      "females": 22
+   },
+   "0328": {
+      "males": 67,
+      "females": 69
+   },
+   "0329": {
+      "males": 78,
+      "females": 48
+   },
+   "0330": {
+      "males": 57,
+      "females": 12
+   },
+   "0401": {
+      "males": 94,
+      "females": 31
+   },
+   "0402": {
+      "males": 391,
+      "females": 127
+   },
+   "0403": {
+      "males": 141,
+      "females": 31
+   },
+   "0404": {
+      "males": 117,
+      "females": 58
+   },
+   "0405": {
+      "males": 176,
+      "females": 64
+   },
+   "0406": {
+      "males": 194,
+      "females": 96
+   },
+   "0407": {
+      "males": 129,
+      "females": 30
+   },
+   "0408": {
+      "males": 104,
+      "females": 50
+   },
+   "0409": {
+      "males": 208,
+      "females": 106
+   },
+   "0410": {
+      "males": 174,
+      "females": 80
+   },
+   "0411": {
+      "males": 124,
+      "females": 59
+   },
+   "0412": {
+      "males": 114,
+      "females": 39
+   },
+   "0413": {
+      "males": 3,
+      "females": 0
+   },
+   "0415": {
+      "males": 115,
+      "females": 76
+   },
+   "0416": {
+      "males": 112,
+      "females": 17
+   },
+   "0501": {
+      "males": 56,
+      "females": 24
+   },
+   "0502": {
+      "males": 73,
+      "females": 30
+   },
+   "0503": {
+      "males": 46,
+      "females": 17
+   },
+   "0504": {
+      "males": 72,
+      "females": 28
+   },
+   "0505": {
+      "males": 48,
+      "females": 40
+   },
+   "0506": {
+      "males": 109,
+      "females": 27
+   },
+   "0507": {
+      "males": 29,
+      "females": 21
+   },
+   "0508": {
+      "males": 31,
+      "females": 2
+   },
+   "0509": {
+      "males": 52,
+      "females": 3
+   },
+   "0510": {
+      "males": 57,
+      "females": 14
+   },
+   "0511": {
+      "males": 72,
+      "females": 46
+   },
+   "0601": {
+      "males": 131,
+      "females": 62
+   },
+   "0602": {
+      "males": 40,
+      "females": 31
+   },
+   "0603": {
+      "males": 49,
+      "females": 39
+   },
+   "0604": {
+      "males": 34,
+      "females": 27
+   },
+   "0605": {
+      "males": 28,
+      "females": 17
+   },
+   "0606": {
+      "males": 53,
+      "females": 47
+   },
+   "0607": {
+      "males": 30,
+      "females": 34
+   },
+   "0608": {
+      "males": 31,
+      "females": 11
+   },
+   "0609": {
+      "males": 30,
+      "females": 28
+   },
+   "0610": {
+      "males": 66,
+      "females": 51
+   },
+   "0611": {
+      "males": 31,
+      "females": 21
+   },
+   "0612": {
+      "males": 39,
+      "females": 17
+   },
+   "0613": {
+      "males": 41,
+      "females": 11
+   },
+   "0615": {
+      "males": 18,
+      "females": 30
+   },
+   "0616": {
+      "males": 64,
+      "females": 14
+   },
+   "0617": {
+      "males": 44,
+      "females": 15
+   },
+   "0618": {
+      "males": 30,
+      "females": 37
+   },
+   "0619": {
+      "males": 50,
+      "females": 22
+   },
+   "0620": {
+      "males": 49,
+      "females": 50
+   },
+   "0621": {
+      "males": 22,
+      "females": 7
+   },
+   "0622": {
+      "males": 8,
+      "females": 3
+   },
+   "0623": {
+      "males": 12,
+      "females": 23
+   },
+   "0624": {
+      "males": 12,
+      "females": 10
+   },
+   "0625": {
+      "males": 9,
+      "females": 2
+   },
+   "0626": {
+      "males": 4,
+      "females": 4
+   },
+   "0627": {
+      "males": 5,
+      "females": 0
+   },
+   "0628": {
+      "males": 7,
+      "females": 0
+   },
+   "0701": {
+      "males": 62,
+      "females": 14
+   },
+   "0702": {
+      "males": 81,
+      "females": 0
+   },
+   "0703": {
+      "males": 48,
+      "females": 15
+   },
+   "0704": {
+      "males": 79,
+      "females": 3
+   },
+   "0705": {
+      "males": 76,
+      "females": 2
+   },
+   "0706": {
+      "males": 66,
+      "females": 0
+   },
+   "0707": {
+      "males": 123,
+      "females": 26
+   },
+   "0708": {
+      "males": 48,
+      "females": 0
+   },
+   "0709": {
+      "males": 197,
+      "females": 34
+   },
+   "0710": {
+      "males": 102,
+      "females": 18
+   },
+   "0711": {
+      "males": 104,
+      "females": 30
+   },
+   "0712": {
+      "males": 68,
+      "females": 0
+   },
+   "0713": {
+      "males": 108,
+      "females": 10
+   },
+   "0714": {
+      "males": 57,
+      "females": 0
+   },
+   "0715": {
+      "males": 92,
+      "females": 4
+   },
+   "0716": {
+      "males": 108,
+      "females": 23
+   },
+   "0717": {
+      "males": 91,
+      "females": 5
+   },
+   "0718": {
+      "males": 19,
+      "females": 0
+   },
+   "0719": {
+      "males": 59,
+      "females": 2
+   },
+   "0720": {
+      "males": 79,
+      "females": 1
+   },
+   "0721": {
+      "males": 69,
+      "females": 0
+   },
+   "0722": {
+      "males": 319,
+      "females": 41
+   },
+   "0801": {
+      "males": 236,
+      "females": 8
+   },
+   "0802": {
+      "males": 259,
+      "females": 12
+   },
+   "0803": {
+      "males": 195,
+      "females": 26
+   },
+   "0804": {
+      "males": 199,
+      "females": 25
+   },
+   "0805": {
+      "males": 3,
+      "females": 0
+   },
+   "0806": {
+      "males": 94,
+      "females": 2
+   },
+   "0807": {
+      "males": 68,
+      "females": 3
+   },
+   "0809": {
+      "males": 114,
+      "females": 2
+   },
+   "0810": {
+      "males": 160,
+      "females": 6
+   },
+   "0811": {
+      "males": 95,
+      "females": 5
+   },
+   "0812": {
+      "males": 76,
+      "females": 0
+   },
+   "0813": {
+      "males": 102,
+      "females": 1
+   },
+   "0814": {
+      "males": 78,
+      "females": 1
+   },
+   "0815": {
+      "males": 44,
+      "females": 2
+   },
+   "0816": {
+      "males": 140,
+      "females": 4
+   },
+   "0817": {
+      "males": 154,
+      "females": 3
+   },
+   "0818": {
+      "males": 57,
+      "females": 3
+   },
+   "0819": {
+      "males": 55,
+      "females": 1
+   },
+   "0820": {
+      "males": 36,
+      "females": 0
+   },
+   "0821": {
+      "males": 82,
+      "females": 3
+   },
+   "0822": {
+      "males": 51,
+      "females": 0
+   },
+   "0823": {
+      "males": 168,
+      "females": 4
+   },
+   "0824": {
+      "males": 115,
+      "females": 1
+   },
+   "0825": {
+      "males": 70,
+      "females": 7
+   },
+   "0826": {
+      "males": 191,
+      "females": 12
+   },
+   "0827": {
+      "males": 83,
+      "females": 7
+   },
+   "0828": {
+      "males": 94,
+      "females": 1
+   },
+   "0829": {
+      "males": 78,
+      "females": 2
+   },
+   "0830": {
+      "males": 59,
+      "females": 0
+   },
+   "0831": {
+      "males": 92,
+      "females": 6
+   },
+   "0833": {
+      "males": 144,
+      "females": 25
+   },
+   "0834": {
+      "males": 37,
+      "females": 1
+   },
+   "0835": {
+      "males": 111,
+      "females": 30
+   },
+   "0836": {
+      "males": 41,
+      "females": 2
+   },
+   "0837": {
+      "males": 26,
+      "females": 0
+   },
+   "0838": {
+      "males": 147,
+      "females": 37
+   },
+   "0839": {
+      "males": 92,
+      "females": 33
+   },
+   "0901": {
+      "males": 127,
+      "females": 24
+   },
+   "0902": {
+      "males": 172,
+      "females": 90
+   },
+   "0903": {
+      "males": 80,
+      "females": 75
+   },
+   "0904": {
+      "males": 351,
+      "females": 272
+   },
+   "0905": {
+      "males": 79,
+      "females": 70
+   },
+   "0906": {
+      "males": 120,
+      "females": 41
+   },
+   "0907": {
+      "males": 150,
+      "females": 56
+   },
+   "0908": {
+      "males": 64,
+      "females": 21
+   },
+   "0909": {
+      "males": 177,
+      "females": 65
+   },
+   "0910": {
+      "males": 99,
+      "females": 40
+   },
+   "0911": {
+      "males": 82,
+      "females": 19
+   },
+   "0912": {
+      "males": 89,
+      "females": 27
+   },
+   "0913": {
+      "males": 170,
+      "females": 66
+   },
+   "0914": {
+      "males": 177,
+      "females": 105
+   },
+   "0918": {
+      "males": 33,
+      "females": 23
+   },
+   "0919": {
+      "males": 118,
+      "females": 42
+   },
+   "0920": {
+      "males": 236,
+      "females": 115
+   },
+   "0921": {
+      "males": 58,
+      "females": 5
+   },
+   "0922": {
+      "males": 98,
+      "females": 24
+   },
+   "0923": {
+      "males": 54,
+      "females": 7
+   },
+   "0924": {
+      "males": 60,
+      "females": 15
+   },
+   "0925": {
+      "males": 36,
+      "females": 17
+   },
+   "0926": {
+      "males": 76,
+      "females": 20
+   },
+   "0927": {
+      "males": 56,
+      "females": 31
+   },
+   "0928": {
+      "males": 170,
+      "females": 99
+   },
+   "0929": {
+      "males": 70,
+      "females": 36
+   },
+   "0930": {
+      "males": 137,
+      "females": 45
+   },
+   "0931": {
+      "males": 92,
+      "females": 58
+   },
+   "0932": {
+      "males": 46,
+      "females": 11
+   },
+   "0933": {
+      "males": 88,
+      "females": 16
+   },
+   "0934": {
+      "males": 61,
+      "females": 22
+   },
+   "0935": {
+      "males": 49,
+      "females": 53
+   },
+   "0936": {
+      "males": 83,
+      "females": 31
+   },
+   "0938": {
+      "males": 94,
+      "females": 52
+   },
+   "0939": {
+      "males": 36,
+      "females": 9
+   }
+}

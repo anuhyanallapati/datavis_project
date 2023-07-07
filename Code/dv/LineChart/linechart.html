@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+
+<!-- Initialize a select button -->
+<select id="selectButton"></select>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+<style>
+  body {
+    background-color: #333433;
+    font-family: monospace;
+  }
+</style>
+<script>
+
+  // set the dimensions and margins of the graph
+  const margin = { top: 10, right: 100, bottom: 30, left: 100 },
+    width = 1000 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
+
+  // append the svg object to the body of the page
+  const svg = d3.select("#my_dataviz")
+    .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+    .attr("transform", `translate(${margin.left},${margin.top})`);
+
+  //Read the data
+  d3.csv("line_chart.csv").then(function (data) {
+
+    // List of groups (here I have one group per column)
+    const allGroup = ["valueA", "valueB", "valueA and valueB"]
+
+    // add the options to the button
+    d3.select("#selectButton")
+      .selectAll('myOptions')
+      .data(allGroup)
+      .enter()
+      .append('option')
+      .text(d => d) // text showed in the menu
+      .attr("value", d => d) // corresponding value returned by the button
+
+    var highestValue = d3.max(data, function (d) { return +d.valueB; });
+    // Add X axis --> it is a date format
+    const x = d3.scaleLinear()
+      .domain([2010, 2018])
+      .range([0, width]);
+    svg.append("g")
+      .attr("transform", `translate(0, ${height})`)
+      .call(d3.axisBottom(x))
+
+    // Add Y axis
+    const y = d3.scaleLinear()
+      .domain([0, highestValue])
+      .range([height, 0]);
+    svg.append("g")
+      .call(d3.axisLeft(y))
+    svg.selectAll("path").style("stroke", "white")
+    svg.selectAll("line").style("stroke", "white")
+    svg.selectAll("text").style("fill", "white");
+
+    // Add X axis label
+    svg.append("text")
+      .attr("transform", `translate(${width / 2},${height + margin.top + 20})`)
+      .style("text-anchor", "middle")
+      .text("Years")
+      .style("fill", "white");
+
+    // Add Y axis label
+    svg.append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x", 0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
+      .text("Number of Judges")
+      .style("fill", "white");
+
+    // Add a legend
+    const legend = svg.append("g")
+      .attr("transform", `translate(${width - 250},20)`);
+
+    // Add a rect for female
+    legend.append("rect")
+      .attr("width", 15)
+      .attr("height", 15)
+      .attr("fill", "#E23B94");
+
+    // Add a rect for male
+    legend.append("rect")
+      .attr("x", 0)
+      .attr("y", 20)
+      .attr("width", 15)
+      .attr("height", 15)
+      .attr("fill", "blue");
+
+    // Add labels for female and male
+    legend.append("text")
+      .attr("x", 20)
+      .attr("y", 12.5)
+      .text("Female")
+      .style("fill", "white");
+
+    legend.append("text")
+      .attr("x", 20)
+      .attr("y", 32.5)
+      .text("Non-Female")
+      .style("fill", "white");
+
+    // Create a tooltip
+    var Tooltip = d3.select("#my_dataviz")
+      .append("div")
+      .style("opacity", 0)
+      .attr("class", "tooltip")
+      .style("background-color", "white")
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .style("padding", "5px")
+      .style("position", "absolute");
+
+    // Three functions that change the tooltip when the user hovers over, moves on, or leaves a data point
+    var mouseover = function (event, d) {
+      Tooltip.style("opacity", 1);
+    };
+    var mousemove = function (event, d) {
+      Tooltip
+        .html("Exact value: " + d.value)
+        .style("left", (d3.event.pageX + 10) + "px")
+        .style("top", (d3.event.pageY - 25) + "px")
+    };
+    var mousemoveA = function (event, d) {
+      Tooltip
+        .html("Exact value: " + d.valueA)
+        .style("left", (d3.event.pageX + 10) + "px")
+        .style("top", (d3.event.pageY - 25) + "px")
+    };
+    var mousemoveB = function (event, d) {
+      Tooltip
+        .html("Exact value: " + d.valueB)
+        .style("left", (d3.event.pageX + 10) + "px")
+        .style("top", (d3.event.pageY - 25) + "px")
+    };
+
+    var mouseleave = function (event, d) {
+      Tooltip.style("opacity", 0);
+    };
+    // Initialize line with group a
+    const line = svg
+      .append('g')
+      .append("path")
+      .datum(data)
+      .attr("d", d3.line()
+        .x(d => x(+d.time))
+        .y(d => y(+d.valueA))
+      )
+      .attr("class", "orilA")
+      .attr("stroke", "#E23B94")
+      .style("stroke-width", 4)
+      .style("fill", "none")
+
+    // Initialize dots with group a
+    const dot = svg
+      .selectAll('circle')
+      .data(data)
+      .join('circle')
+      .attr("cx", d => x(+d.time))
+      .attr("cy", d => y(+d.valueA))
+      .attr("r", 7)
+      .attr("class", "oridA")
+      .style("fill", "#69b3a2")
+      .on("mouseover", mouseover)
+      .on("mousemove", mousemoveA)
+      .on("mouseleave", mouseleave);
+
+    // When the button is changed, run the updateChart function
+    d3.select("#selectButton").on("change", function (event, d) {
+      // recover the option that has been chosen
+      let selectedOption = d3.select(this).property("value")
+      // run the updateChart function with this selected option
+
+      if (selectedOption == "valueA and valueB") {
+        // CLEAR CURRENT GRAPH
+        svg.selectAll('.lineAA').remove();
+        svg.selectAll('.dotAA').remove();
+        svg.selectAll('.lineBB').remove();
+        svg.selectAll('.dotBB').remove();
+        svg.selectAll('.orilA').remove();
+        svg.selectAll('.oridA').remove();
+        svg.selectAll('.lineA').remove();
+        svg.selectAll('.dotA').remove();
+        svg.selectAll('.lineB').remove();
+        svg.selectAll('.dotB').remove();
+        const lineAA = svg
+          .append('g')
+          .append("path")
+          .datum(data)
+          .attr("d", d3.line()
+            .x(d => x(+d.time))
+            .y(d => y(+d.valueA))
+          )
+          .attr("stroke", "pink")
+          .style("stroke-width", 4)
+          .style("fill", "none")
+          .classed("lineAA", true);
+        // Initialize dots with group a
+        const dotAA = svg
+          .selectAll('.dotA')
+          .data(data)
+          .join('circle')
+          .attr("class", "dotAA")
+          .attr("cx", d => x(+d.time))
+          .attr("cy", d => y(+d.valueA))
+          .attr("r", 7)
+          .style("fill", "#69b3a2")
+          .on("mouseover", mouseover)
+          .on("mousemove", mousemoveA)
+          .on("mouseleave", mouseleave);
+
+        // Initialize line with group b
+        const lineBB = svg
+          .append('g')
+          .append("path")
+          .datum(data)
+          .attr("d", d3.line()
+            .x(d => x(+d.time))
+            .y(d => y(+d.valueB))
+          )
+          .attr("stroke", "blue")
+          .style("stroke-width", 4)
+          .style("fill", "none")
+          .classed("lineBB", true);
+
+        // Initialize dots with group a
+        const dotBB = svg
+          .selectAll('.dotB')
+          .data(data)
+          .join('circle')
+          .attr("class", "dotBB")
+          .attr("cx", d => x(+d.time))
+          .attr("cy", d => y(+d.valueB))
+          .attr("r", 7)
+          .style("fill", "#69b3a2")
+          .on("mouseover", mouseover)
+          .on("mousemove", mousemoveB)
+          .on("mouseleave", mouseleave);
+      }
+      else if (selectedOption == "valueA") {
+        // CLEAR CURRENT GRAPH
+        svg.selectAll('.lineAA').remove();
+        svg.selectAll('.dotAA').remove();
+        svg.selectAll('.lineBB').remove();
+        svg.selectAll('.dotBB').remove();
+        svg.selectAll('.orilA').remove();
+        svg.selectAll('.oridA').remove();
+        svg.selectAll('.lineA').remove();
+        svg.selectAll('.dotA').remove();
+        svg.selectAll('.lineB').remove();
+        svg.selectAll('.dotB').remove();
+        const lineA = svg
+          .append('g')
+          .append("path")
+          .datum(data)
+          .attr("d", d3.line()
+            .x(d => x(+d.time))
+            .y(d => y(+d.valueA))
+          )
+          .attr("stroke", "pink")
+          .style("stroke-width", 4)
+          .style("fill", "none")
+          .classed("lineA", true);
+        // Initialize dots with group a
+        const dotA = svg
+          .selectAll('.dotA')
+          .data(data)
+          .join('circle')
+          .attr("class", "dotA")
+          .attr("cx", d => x(+d.time))
+          .attr("cy", d => y(+d.valueA))
+          .attr("r", 7)
+          .style("fill", "#69b3a2")
+          .on("mouseover", mouseover)
+          .on("mousemove", mousemoveA)
+          .on("mouseleave", mouseleave);
+      }
+      else if (selectedOption == "valueB") {
+        // CLEAR CURRENT GRAPH
+        svg.selectAll('.lineAA').remove();
+        svg.selectAll('.dotAA').remove();
+        svg.selectAll('.lineBB').remove();
+        svg.selectAll('.dotBB').remove();
+        svg.selectAll('.orilA').remove();
+        svg.selectAll('.oridA').remove();
+        svg.selectAll('.lineA').remove();
+        svg.selectAll('.dotA').remove();
+        svg.selectAll('.lineB').remove();
+        svg.selectAll('.dotB').remove();
+        const lineB = svg
+          .append('g')
+          .append("path")
+          .datum(data)
+          .attr("d", d3.line()
+            .x(d => x(+d.time))
+            .y(d => y(+d.valueB))
+          )
+          .attr("stroke", "blue")
+          .style("stroke-width", 4)
+          .style("fill", "none")
+          .classed("lineB", true);
+        // Initialize dots with group a
+        const dotB = svg
+          .selectAll('.dotA')
+          .data(data)
+          .join('circle')
+          .attr("class", "dotB")
+          .attr("cx", d => x(+d.time))
+          .attr("cy", d => y(+d.valueB))
+          .attr("r", 7)
+          .style("fill", "#69b3a2")
+          .on("mouseover", mouseover)
+          .on("mousemove", mousemoveB)
+          .on("mouseleave", mouseleave);
+      }
+    })
+
+  })
+</script>

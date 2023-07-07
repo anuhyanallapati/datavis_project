@@ -1,0 +1,202 @@
+body {
+    background-color: #333433;
+    font-family: monospace;
+}
+
+text {
+    stroke: white;
+}
+
+#selectorList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 100vh;
+    width: 10vw;
+    
+}
+
+button {
+    height: 50px;
+    width: 250px;
+
+    margin-bottom: 40px;
+
+    font-family: monospace
+
+}
+
+#buttonRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 450px;
+
+    height: 50px;
+    width: 300px;
+
+
+}
+
+#slider {
+    display: flex; 
+    align-items: center;
+
+    margin-bottom: 40px;
+    margin-left: 20px;
+
+    visibility: hidden;
+
+    color: white;
+}
+
+#button1 {
+    width: 200px;
+    height: 40px;
+
+    visibility: hidden;
+
+    transition: all 0.8s cubic-bezier(.25,.75,.5,1.25);
+}
+
+.button-3 {
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system,system-ui,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.button-3:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+.button-3:hover {
+  background-color: #2c974b;
+}
+
+.button-3:focus {
+  box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+  outline: none;
+}
+
+.button-3:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+.button-3:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+#chloropleth {
+    display: flex;
+    align-items: center;
+}
+
+#graph {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    /* align-items: center; */
+
+    width: 90vw;
+    height: 100vh;
+}
+
+#sliderInput {
+    color: white;
+}
+
+#tickNumbers {
+
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 300px;
+    width: 30px;
+
+    margin-top: 45px;
+    margin-left: 76px;
+
+    gap: 11px;
+
+    transform: rotate(-90deg);
+
+}
+
+.tickNumber {
+    font-size: 8px;
+}
+
+#tooltip {
+    position: absolute;
+    z-index: 10;
+    visibility: hidden;
+
+    height: 30px;
+
+    color: white;
+    background-color: #333433;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#behindLegend {
+    position: absolute;
+    height: 50px;
+    width: 350px;
+
+    top: 150px;
+    left: 650px;
+
+    background-color: #FFFDD0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#legend {
+    width: 300px;
+    height: auto;
+
+}
+
+svg {
+    position: absolute;
+
+    width: 70vw;
+    height: 650px;
+
+    top: 50%;
+    left: 20vw;
+    transform: translateY(-50%);
+}

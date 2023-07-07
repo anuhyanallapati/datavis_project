@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <style>
+        body {
+            background-color: #333433;
+            font-family: monospace;
+        }
+
+        text, line {
+            stroke: white;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        var x_max = 900
+        var y_max = 500
+        var margin_x = 70
+        var margin_y = 25
+        var scalling_factor_x = 100
+        var scalling_factor_y = 10
+        var margin_factor_x = 20
+        var margin_factor_y = 60
+        var radius = 0.04
+
+        let maleColor = "#4092C2"
+        let femaleColor = "#E23B94"
+        const svg = d3.select("body")
+            .append("svg")
+            .attr("class", "svg-container")
+            .attr("id", "circle")
+            .attr("width", x_max * 2)
+            .attr('height', y_max);
+        d3.csv("./made_csv1.csv")
+        .then(function(data_avg) {
+            d3.csv("./made_csv2.csv")
+                .then(function(data_ratio) {
+                    svg.selectAll(".circle")
+                        .data(data_avg)
+                        .enter().append('circle')
+                        .attr('cx', function (d) {
+                            ratio = 0
+                            for(var i = 0; i < data_ratio.length; i++){
+                                if(parseInt(d.state_code) == parseInt(data_ratio[i].state_code) && parseInt(d.district_code) == parseInt(data_ratio[i].district_code)){
+                                    ratio = data_ratio[i].number_of_females/data_ratio[i].number_of_males
+                                    break
+                                }
+                            }
+                            return ratio * scalling_factor_x + margin_factor_x + margin_x - 20
+                        })
+                        .attr('cy',function (d) {
+                            return y_max - (d.average/scalling_factor_y + margin_factor_y)
+                        })
+                        .attr('r', function (d) {
+                            return radius*100
+                        })
+                        .attr('stroke', 'black')
+                        .attr('fill', femaleColor)
+                    svg.append("line")
+                        .attr('x1', margin_x)
+                        .attr('x2', x_max)
+                        .attr('y1', y_max - margin_y)
+                        .attr('y2', y_max - margin_y)
+                        .attr('stroke', 'black')
+                    svg.append("line")
+                        .attr('x1', margin_x)
+                        .attr('x2', margin_x)
+                        .attr('y1', margin_y - 20)
+                        .attr('y2', y_max - margin_y)
+                        .attr('stroke', 'black')
+                    for(var i = 0; i < 8; i++){
+                        svg.append("line")
+                        .attr('x1', margin_x + i * 114)
+                        .attr('x2', margin_x + i * 114)
+                        .attr('y1', y_max - margin_y - 10)
+                        .attr('y2', y_max - margin_y + 10)
+                        .attr('stroke', 'black')
+                        svg.append("text")
+                        .text(parseInt((8 * i)/7))
+                        .attr("x", margin_x + i * 114 - 4)
+                        .attr("y", y_max - margin_y + 25)
+                    }
+                    for(var i = 0; i < 8; i++){
+                        svg.append("line")
+                        .attr('x1', margin_x - 10)
+                        .attr('x2', margin_x + 10)
+                        .attr('y1', y_max - margin_y - i*63)
+                        .attr('y2', y_max - margin_y - i*63)
+                        .attr('stroke', 'black')
+                        svg.append("text")
+                        .text(parseInt((3477 * i)/7))
+                        .attr("x", margin_x - 45)
+                        .attr("y", y_max - margin_y - i*63 + 6)
+                    }
+                })
+            .catch(function(error) {
+                console.log(error);
+            });
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<!-- Create a div where the graph will take place -->
+<div id="my_dataviz"></div>
+<style>
+    body {
+        background-color: #333433;
+        font-family: monospace;
+    }
+</style>
+<script>
+
+    // set the dimensions and margins of the graph
+    var margin = { top: 10, right: 30, bottom: 30, left: 300 },
+        width = 1500 - margin.left - margin.right,
+        height = 700 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
+    var svg = d3.select("#my_dataviz")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+    // Add X axis label
+    svg.append("text")
+        .attr("transform", `translate(${width / 2},${height + margin.top + 20})`)
+        .style("text-anchor", "middle")
+        .text("Count")
+        .style("fill", "white");
+
+    // Add Y axis label
+    svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Judge Designation")
+        .style("fill", "white");
+
+
+    // Add a legend
+    const legend = svg.append("g")
+        .attr("transform", `translate(${width - 1480},20)`);
+
+    // Add a rect for female
+    legend.append("rect")
+        .attr("width", 15)
+        .attr("height", 15)
+        .attr("fill", "#E23B94");
+
+    // Add a rect for male
+    legend.append("rect")
+        .attr("x", 0)
+        .attr("y", 20)
+        .attr("width", 15)
+        .attr("height", 15)
+        .attr("fill", "#4092C2");
+
+    // Add labels for female and male
+    legend.append("text")
+        .attr("x", 20)
+        .attr("y", 12.5)
+        .text("Female")
+        .style("fill", "white");
+
+    legend.append("text")
+        .attr("x", 20)
+        .attr("y", 32.5)
+        .text("Non-Female")
+        .style("fill", "white");
+
+
+    // Parse the Data
+    d3.csv("data2.csv", function (data) {
+
+        var highestValue = d3.max(data, function (d) { return +d.value2; });
+        // Add X axis
+        var x = d3.scaleLinear()
+            .domain([0, highestValue])
+            .range([0, width]);
+        svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x))
+
+        // Y axis
+        var y = d3.scaleBand()
+            .range([0, height])
+            .domain(data.map(function (d) { return d.group; }))
+            .padding(1);
+        svg.append("g")
+            .call(d3.axisLeft(y))
+
+        svg.selectAll("path").style("stroke", "white")
+        svg.selectAll("line").style("stroke", "white")
+        svg.selectAll("text").style("fill", "white");
+        // Lines
+        svg.selectAll("myline")
+            .data(data)
+            .enter()
+            .append("line")
+            .attr("x1", function (d) { return x(d.value1); })
+            .attr("x2", function (d) { return x(d.value2); })
+            .attr("y1", function (d) { return y(d.group); })
+            .attr("y2", function (d) { return y(d.group); })
+            .attr("stroke", function (d) {
+                // If value1 is on the left, make line yellow, otherwise make it orange
+                return (d.value1 < 0 || x(d.value1) < x(d.value2)) ? "gray" : "yellow";
+            })
+            .attr("stroke-width", "2px")
+
+
+        // Circles of variable 1
+        svg.selectAll("mycircle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) { return x(d.value1); })
+            .attr("cy", function (d) { return y(d.group); })
+            .attr("r", "6")
+            .style("fill", "#E23B94")
+
+        // Circles of variable 2
+        svg.selectAll("mycircle")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) { return x(d.value2); })
+            .attr("cy", function (d) { return y(d.group); })
+            .attr("r", "6")
+            .style("fill", "#4092C2")
+    })
+
+</script>

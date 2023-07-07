@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <style>
+        text, line {	
+            stroke: white;	
+        }
+        body {	
+            background-color: #333433;	
+            font-family: monospace;	
+        }
+        .bar{
+            float: left;
+            display: inline;
+        }
+        #svg1{
+            float: left;
+            display: inline;
+        }
+    </style>
+    <script>
+        function sorting_function(a, b) {
+            if (a[0] === b[0]) {
+                return 0;
+            }
+            else {
+                return (a[0] < b[0]) ? -1 : 1;
+            }
+        }
+
+        async function make_svg(positions){
+            await positions.sort(sorting_function)
+            for(var i = 0; i < positions.length; i++){
+                positions[i].push(i + 1)
+            }
+            var average = []
+            var sum_males = 0
+            var sum_females = 0
+            var number_males = 0
+            var number_females = 0
+            var count = 0
+            var index = 0
+            for(var i = 0; i < positions.length; i++){
+                sum_males += positions[i][2] * positions[i][1]
+                sum_females += positions[i][4] * positions[i][3]
+                number_males += positions[i][1]
+                number_females += positions[i][3]
+                count++
+                if(count === 55){
+                    var name;
+                    if(index == 0){
+                        name = "1 to 2"
+                    }
+                    else if(index == 1){
+                        name = "2 to 5"
+                    }
+                    else if(index == 2){
+                        name = "5 to a"
+                    }
+                    else if(index == 3){
+                        name = "a to c"
+                    }
+                    else if(index == 4){
+                        name = "c to f"
+                    }
+                    else if(index == 5){
+                        name = "f to j"
+                    }
+                    else if(index == 6){
+                        name = "j to m"
+                    }
+                    else if(index == 7){
+                        name = "m to s"
+                    }
+                    else if(index == 8){
+                        name = "s to s"
+                    }
+                    else if(index == 9){
+                        name = "s to z"
+                    }
+                    average.push([name, sum_males/number_males, sum_females/number_females, index])
+                    count = 0
+                    index++
+                }
+            }
+            let maleMax = d3.max(average, (d) => { return d[1] })	
+            let maleMin = d3.min(average, (d) => { return d[1] })	
+            let maleColor = "#4092C2"
+            let femaleColor = "#E23B94"
+            svg.selectAll(".bar")
+                .data(average)
+                .enter().append('rect')
+                .attr('x', function (d) {
+                    return x_max/2 - d[1]/scalling_factor
+                })
+                .attr('y',function (d) {
+                    return margin_y + (bar_width + bar_gap) * d[3]
+                })
+                .attr('width', function (d) {
+                    return d[1]/scalling_factor
+                })
+                .attr('height', function (d) {
+                    return bar_width
+                })
+                .attr('fill', maleColor)
+                .on("click", (e, data) => {
+                    d3.select(".svg1").remove();
+                    var x_max_1 = 890
+                    var y_max_1 = 920
+                    var margin_x_1 = 40
+                    var margin_y_1 = 60
+                    var bar_width_1 = 12
+                    var bar_gap_1 = 1.5
+                    var scalling_factor_1 = 4.6
+                    const svg1 = d3.select("body")
+                        .append("svg")
+                        .attr("class", "svg1")
+                        .attr("width", x_max_1)
+                        .attr('height', y_max_1);
+                    var i = 0
+                    svg1.selectAll(".svg1")
+                        .data(positions.slice(55*data[3], 55*(data[3]+1)+1))
+                        .enter().append('rect')
+                        .attr('x', function (d) {
+                            return x_max_1/2 - d[2]/scalling_factor_1
+                        })
+                        .attr('y',function (d) {
+                            i += 1
+                            return margin_y_1 + (bar_width_1 + bar_gap_1) * (i-1)
+                        })
+                        .attr('width', function (d) {
+                            return d[2]/scalling_factor_1
+                        })
+                        .attr('height', function (d) {
+                            return bar_width_1
+                        })
+                        .attr('fill', maleColor)
+                        .on("mouseover", (e, d) => {
+                            var j = 0
+                            for(j = 0; j < positions.length; j++){
+                                if (positions[j][0] == d[0]){
+                                    break
+                                }
+                            }
+                            if(j%55!=0){
+                                j %= 55
+                            }
+                            else{
+                                j = 55
+                            }
+                            svg1.append('text')
+                                .attr("id", "textt")
+                                .text("Name: " + d[0] + " Avg. Duration: " + d[2].toFixed(2))
+                                .attr('x', x_max_1/2 - d[2]/scalling_factor_1 + 10)
+                                .attr('y', margin_y_1 + (bar_width_1 + bar_gap_1) * (j) + bar_width_1/2 + bar_gap_1/2)
+                        })
+                        .on("mouseout", () => {
+                            d3.select("#textt").remove();
+                        });
+                    i = 0
+                    svg1.selectAll(".svg1")
+                        .data(positions.slice(55*data[3], 55*(data[3]+1)+1))
+                        .enter().append('rect')
+                        .attr('x', function (d) {
+                            return x_max_1/2
+                        })
+                        .attr('y',function (d) {
+                            i += 1
+                            return margin_y_1 + (bar_width_1 + bar_gap_1) * (i-1)
+                        })
+                        .attr('width', function (d) {
+                            return d[4]/scalling_factor_1
+                        })
+                        .attr('height', function (d) {
+                            return bar_width_1
+                        })
+                        .attr('fill', femaleColor)
+                        .on("mouseover", (e, d) => {
+                            var j = 0
+                            for(j = 0; j < positions.length; j++){
+                                if (positions[j][0] == d[0]){
+                                    break
+                                }
+                            }
+                            if(j%55!=0){
+                                j %= 55
+                            }
+                            svg1.append('text')
+                                .attr("id", "textt")
+                                .text("Name: " + d[0] + " Avg. Duration: " + d[4].toFixed(2))
+                                .attr('x', x_max_1/2 + 10)
+                                .attr('y', margin_y_1 + (bar_width_1 + bar_gap_1) * (j) + bar_width_1/2 + bar_gap_1/2)
+                        })
+                        .on("mouseout", () => {
+                            d3.select("#textt").remove();
+                        });
+                    svg1.append("line")
+                        .attr('x1', 0)
+                        .attr('x2', x_max_1 - 0)
+                        .attr('y1', margin_y_1)
+                        .attr('y2', margin_y_1)
+                        .attr('stroke', 'black')
+                    svg1.append("line")
+                        .attr('x1', x_max_1/2)
+                        .attr('x2', x_max_1/2)
+                        .attr('y1', margin_y_1 - 20)
+                        .attr('y2', y_max_1 - margin_y_1)
+                        .attr('stroke', 'black')
+                    for(var i = 0; i < 8; i++){
+                        svg1.append("line")
+                        .attr('x1', x_max_1/2 - i * 60)
+                        .attr('x2', x_max_1/2 - i * 60)
+                        .attr('y1', margin_y_1 - 10)
+                        .attr('y2', margin_y_1 + 10)
+                        .attr('stroke', 'black')
+                        svg1.append("text")
+                        .text(parseInt((1800 * i)/7))
+                        .attr("x", x_max_1/2 - i * 60 - 10)
+                        .attr("y", margin_y_1 - 15);
+                        svg1.append("line")
+                        .attr('x1', x_max_1/2 + i * 60)
+                        .attr('x2', x_max_1/2 + i * 60)
+                        .attr('y1', margin_y_1 - 10)
+                        .attr('y2', margin_y_1 + 10)
+                        .attr('stroke', 'black')
+                        svg1.append("text")
+                        .text(parseInt((1800 * i)/7))
+                        .attr("x", x_max_1/2 + i * 60 - 10)
+                        .attr("y", margin_y_1 - 15);
+                    }
+                })
+            svg.selectAll(".bar")
+                .data(average)
+                .enter().append('text')
+                .text(function(d){
+                    return "Name: " + d[0]
+                })
+                .attr('x',function (d) {
+                    return x_max/2 - d[1]/scalling_factor + 10
+                })
+                .attr('y', function (d) {
+                    return margin_y + (bar_width + bar_gap) * d[3] + bar_width/2 + bar_gap/2 - 7
+                })
+            svg.selectAll(".bar")
+                .data(average)
+                .enter().append('text')
+                .text(function(d){
+                    return " Avg. Duration: " + d[1].toFixed(2)
+                })
+                .attr('x',function (d) {
+                    return x_max/2 - d[1]/scalling_factor + 10
+                })
+                .attr('y', function (d) {
+                    return margin_y + (bar_width + bar_gap) * d[3] + bar_width/2 + bar_gap/2 + 7
+                })
+            svg.selectAll(".bar")
+                .data(average)
+                .enter().append('rect')
+                .attr('x', function (d) {
+                    return x_max/2
+                })
+                .attr('y',function (d) {
+                    return margin_y + (bar_width + bar_gap) * d[3]
+                })
+                .attr('width', function (d) {
+                    return d[2]/scalling_factor
+                })
+                .attr('height', function (d) {
+                    return bar_width
+                })
+                .attr('fill', femaleColor)
+                .on("click", (e, data) => {
+                    d3.select(".svg1").remove();
+                    var x_max_1 = 890
+                    var y_max_1 = 920
+                    var margin_x_1 = 40
+                    var margin_y_1 = 60
+                    var bar_width_1 = 12
+                    var bar_gap_1 = 1.5
+                    var scalling_factor_1 = 4.6
+                    const svg1 = d3.select("body")
+                        .append("svg")
+                        .attr("class", "svg1")
+                        .attr("width", x_max_1)
+                        .attr('height', y_max_1);
+                    var i = 0
+                    svg1.selectAll(".svg1")
+                        .data(positions.slice(55*data[3], 55*(data[3]+1)+1))
+                        .enter().append('rect')
+                        .attr('x', function (d) {
+                            return x_max_1/2 - d[2]/scalling_factor_1
+                        })
+                        .attr('y',function (d) {
+                            i += 1
+                            return margin_y_1 + (bar_width_1 + bar_gap_1) * (i-1)
+                        })
+                        .attr('width', function (d) {
+                            return d[2]/scalling_factor_1
+                        })
+                        .attr('height', function (d) {
+                            return bar_width_1
+                        })
+                        .attr('fill', maleColor)
+                        .on("mouseover", (e, d) => {
+                            var j = 0
+                            for(j = 0; j < positions.length; j++){
+                                if (positions[j][0] == d[0]){
+                                    break
+                                }
+                            }
+                            if(j%55!=0){
+                                j %= 55
+                            }
+                            else{
+                                j = 55
+                            }
+                            svg1.append('text')
+                                .attr("id", "textt")
+                                .text("Name: " + d[0] + " Avg. Duration: " + d[2].toFixed(2))
+                                .attr('x', x_max_1/2 - d[2]/scalling_factor_1 + 10)
+                                .attr('y', margin_y_1 + (bar_width_1 + bar_gap_1) * (j) + bar_width_1/2 + bar_gap_1/2)
+                        })
+                        .on("mouseout", () => {
+                            d3.select("#textt").remove();
+                        });
+                    i = 0
+                    svg1.selectAll(".svg1")
+                        .data(positions.slice(55*data[3], 55*(data[3]+1)+1))
+                        .enter().append('rect')
+                        .attr('x', function (d) {
+                            return x_max_1/2
+                        })
+                        .attr('y',function (d) {
+                            i += 1
+                            return margin_y_1 + (bar_width_1 + bar_gap_1) * (i-1)
+                        })
+                        .attr('width', function (d) {
+                            return d[4]/scalling_factor_1
+                        })
+                        .attr('height', function (d) {
+                            return bar_width_1
+                        })
+                        .attr('fill', femaleColor)
+                        .on("mouseover", (e, d) => {
+                            var j = 0
+                            for(j = 0; j < positions.length; j++){
+                                if (positions[j][0] == d[0]){
+                                    break
+                                }
+                            }
+                            if(j%55!=0){
+                                j %= 55
+                            }
+                            svg1.append('text')
+                                .attr("id", "textt")
+                                .text("Name: " + d[0] + " Avg. Duration: " + d[4].toFixed(2))
+                                .attr('x', x_max_1/2 + 10)
+                                .attr('y', margin_y_1 + (bar_width_1 + bar_gap_1) * (j) + bar_width_1/2 + bar_gap_1/2)
+                        })
+                        .on("mouseout", () => {
+                            d3.select("#textt").remove();
+                        });
+                    svg1.append("line")
+                        .attr('x1', 0)
+                        .attr('x2', x_max_1 - 0)
+                        .attr('y1', margin_y_1)
+                        .attr('y2', margin_y_1)
+                        .attr('stroke', 'black')
+                    svg1.append("line")
+                        .attr('x1', x_max_1/2)
+                        .attr('x2', x_max_1/2)
+                        .attr('y1', margin_y_1 - 20)
+                        .attr('y2', y_max_1 - margin_y_1)
+                        .attr('stroke', 'black')
+                    for(var i = 0; i < 8; i++){
+                        svg1.append("line")
+                        .attr('x1', x_max_1/2 - i * 60)
+                        .attr('x2', x_max_1/2 - i * 60)
+                        .attr('y1', margin_y_1 - 10)
+                        .attr('y2', margin_y_1 + 10)
+                        .attr('stroke', 'black')
+                        svg1.append("text")
+                        .text(parseInt((1800 * i)/7))
+                        .attr("x", x_max_1/2 - i * 60 - 10)
+                        .attr("y", margin_y_1 - 15);
+                        svg1.append("line")
+                        .attr('x1', x_max_1/2 + i * 60)
+                        .attr('x2', x_max_1/2 + i * 60)
+                        .attr('y1', margin_y_1 - 10)
+                        .attr('y2', margin_y_1 + 10)
+                        .attr('stroke', 'black')
+                        svg1.append("text")
+                        .text(parseInt((1800 * i)/7))
+                        .attr("x", x_max_1/2 + i * 60 - 10)
+                        .attr("y", margin_y_1 - 15);
+                    }
+                })
+            svg.selectAll(".bar")
+                .data(average)
+                .enter().append('text')
+                .text(function(d){
+                    return "Name: " + d[0]
+                })
+                .attr('x',function (d) {
+                    return x_max/2 + 10
+                })
+                .attr('y', function (d) {
+                    return margin_y + (bar_width + bar_gap) * d[3] + bar_width/2 + bar_gap/2 - 7
+                })
+            svg.selectAll(".bar")
+                .data(average)
+                .enter().append('text')
+                .text(function(d){
+                    return " Avg. Duration: " + d[2].toFixed(2)
+                })
+                .attr('x',function (d) {
+                    return x_max/2 + 10
+                })
+                .attr('y', function (d) {
+                    return margin_y + (bar_width + bar_gap) * d[3] + bar_width/2 + bar_gap/2 + 7
+                })
+            svg.append("line")
+                .attr('x1', margin_x)
+                .attr('x2', x_max - margin_x)
+                .attr('y1', margin_y)
+                .attr('y2', margin_y)
+                .attr('stroke', 'black')
+            svg.append("line")
+                .attr('x1', x_max/2)
+                .attr('x2', x_max/2)
+                .attr('y1', margin_y - 20)
+                .attr('y2', y_max - margin_y)
+                .attr('stroke', 'black')
+            for(var i = 0; i < 8; i++){
+                svg.append("line")
+                .attr('x1', x_max/2 - i * 60)
+                .attr('x2', x_max/2 - i * 60)
+                .attr('y1', margin_y - 10)
+                .attr('y2', margin_y + 10)
+                .attr('stroke', 'black')
+                svg.append("text")
+                .text(parseInt((631 * i)/7))
+                .attr("x", x_max/2 - i * 60 - 10)
+                .attr("y", margin_y - 15);
+                svg.append("line")
+                .attr('x1', x_max/2 + i * 60)
+                .attr('x2', x_max/2 + i * 60)
+                .attr('y1', margin_y - 10)
+                .attr('y2', margin_y + 10)
+                .attr('stroke', 'black')
+                svg.append("text")
+                .text(parseInt((631 * i)/7))
+                .attr("x", x_max/2 + i * 60 - 10)
+                .attr("y", margin_y - 15);
+            }
+        }
+
+        var x_max = 1000
+        var y_max = 920
+        var margin_x = 40
+        var margin_y = 60
+        var bar_width = 70
+        var bar_gap = 10
+        var scalling_factor = 1.5
+        var positions = []
+        const svg = d3.select("body")
+            .append("svg")
+            .attr("class", "svg-container")
+            .attr("id", "bar")
+            .attr("width", x_max)
+            .attr('height', y_max);
+        d3.csv("./judges_clean.csv")
+        .then(function(data) {
+            for(var i = 0; i < data.length; i++){
+                var time_period = 0
+                if (data[i].start_date != ""){
+                    var parts1 = data[i].end_date.split('-');
+                    var parts2 = data[i].start_date.split('-');
+                    if (parseInt(parts1[2]) > parseInt(parts2[2])) {
+                        time_period += 365 * (parseInt(parts1[2]) - parseInt(parts2[2]))
+                        time_period += 30.5 * (parseInt(parts1[1]))
+                        time_period += 30.5 * (12 - parseInt(parts2[1]))
+                        time_period += (parseInt(parts1[0]))
+                        time_period += (30.5 - parseInt(parts2[0]))
+                    } else if (parseInt(parts1[2]) == parseInt(parts2[2])) {
+                        if (parseInt(parts1[1]) > parseInt(parts2[1])) {
+                            time_period += 30.5 * (parseInt(parts1[1]) - parseInt(parts2[1]) - 1)
+                            time_period += (parseInt(parts1[0]))
+                            time_period += (30.5 - parseInt(parts2[0]))
+                        } else if (parseInt(parts1[1]) == parseInt(parts2[1])) {
+                            if (parseInt(parts1[0]) >= parseInt(parts2[0])) {
+                                time_period += (parseInt(parts1[0]) - parseInt(parts2[0]))
+                            } 
+                        }
+                    }
+                }
+                else{
+                    time_period = 365*9
+                }
+                var flag = 0
+                for(var j = 0; j < positions.length; j++){
+                    if(positions[j][0] === data[i].judge_position){
+                        flag = 1
+                        if(data[i].female_judge[0] == "0"){
+                            positions[j][1] += 1
+                            positions[j][2] = ((positions[j][2]) * (positions[j][1] - 1) + time_period)/ positions[j][1]
+                        }
+                        else if(data[i].female_judge[0] == "1"){
+                            positions[j][3] += 1
+                            positions[j][4] = ((positions[j][4]) * (positions[j][3] - 1) + time_period)/ positions[j][3]
+                        }
+                        break
+                    }
+                }
+                if(flag === 0){
+                    if(data[i].female_judge[0] == "0"){
+                        positions.push([data[i].judge_position, 1, (time_period), 0, 0])
+                    }
+                    else if(data[i].female_judge[0] == "1"){
+                        positions.push([data[i].judge_position, 0, 0, 1, (time_period)])
+                    }
+                }
+            }
+            make_svg(positions)
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
+    </script>
+</body>
+
+</html>

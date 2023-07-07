@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- India State Map  -->
+    <title>India Map</title>
+ 
+    <!--  Scripts  -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- <script type="text/javascript" src="js/d3.min.js"></script> -->
+    <script type="text/javascript" src="js/d3.geo.min.js"></script>
+    <!-- <script type="text/javascript" src="js/topojson.v1.min.js"></script> -->
+    <script src="http://d3js.org/topojson.v0.min.js"></script>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/d3-geo@3"></script> -->
+    <!-- <script src="//d3js.org/topojson.v1.min.js"></script> -->
+
+    
+    <!--  Styles  -->  
+    <link rel="stylesheet" type="text/css" href="chloropleth.css">
+  </head>
+  
+<body>
+    <div id="chloropleth">
+        <div id="selectorList"></div>
+
+        <div id="graph">
+            
+            <div id="behindLegend">
+                <img id="legend" src="./legends/legend1.png"></img>
+            </div>
+
+            <div id="buttonRow">
+                <button id="button1" class="button-3" role="button">Click For Animation</button>
+                <label id="slider">
+                    <div id="tickNumbers">
+                        <div class="tickNumber">2010</div>
+                        <div class="tickNumber">2011</div>
+                        <div class="tickNumber">2012</div>
+                        <div class="tickNumber">2013</div>
+                        <div class="tickNumber">2014</div>
+                        <div class="tickNumber">2015</div>
+                        <div class="tickNumber">2016</div>
+                        <div class="tickNumber">2017</div>
+                        <div class="tickNumber">2018</div>
+                    </div>
+                    <input id="sliderInput" list="markers" name="i" type="range" min="0" max="8" value="0" step="1" style="width: 180px;" />
+                    <datalist id="markers">
+                        <option value="0"></option>
+                        <option value="1"></option>
+                        <option value="2"></option>
+                        <option value="3"></option>
+                        <option value="4"></option>
+                        <option value="5"></option>
+                        <option value="6"></option>
+                        <option value="7"></option>
+                        <option value="8"></option>
+                      </datalist>
+                    <output id="sliderOutput" name="o" style="margin-left: 0.4em;">2010</output>
+                  </label>
+            </div>
+        </div>
+    </div>
+
+  <script src="chloropleth.js"></script>
+</body>
+</html>

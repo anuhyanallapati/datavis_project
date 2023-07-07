@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .male-bar {
+            fill: url(#gradient_m);
+            stroke: rgb(0, 0, 0);
+            stroke-width: 2px;
+        }
+
+        .female-bar {
+            fill: url(#gradient_f);
+            stroke: rgb(0, 0, 0);
+            stroke-width: 2px;
+        }
+
+        .heading-name {
+            font-size: 20px;
+            font-weight: bold;
+            fill: #000;
+            text-anchor: middle;
+            font-family: Impact, sans-serif;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>Number of Judges</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+
+<body>
+    <div id="chart"></div>
+    <script>
+
+        function createDistrictBarChart(stateName) {
+            d3.csv("merge.csv").then(function (data) {
+                var state_data = data.filter(function (d) { return d.state_name === stateName; });
+                var counts = d3.rollup(state_data,
+                    v => {
+                        const count_map = new Map();
+                        count_map.set("male", v.filter(d => d.female_judge === "0 nonfemale").length);
+                        count_map.set("female", v.filter(d => d.female_judge === "1 female").length);
+                        return count_map;
+                    },
+                    d => d.district_name
+                );
+                var count_data = Array.from(counts, function ([district_name, count_map]) {
+                    var total_f = 0;
+                    var total_m = 0;
+                    count_map.forEach(function (value, key) {
+                        if (key === "female") {
+                            total_f = total_f + value;
+                        }
+                        else if (key === "male") {
+                            total_m = total_m + value;
+                        }
+                    });
+                    console.log(`District: ${district_name}, Male Judges: ${total_m}, Female Judges: ${total_f}`);
+                    return { "district_name": district_name, "female_judge": total_f, "male_judge": total_m };
+                });
+
+
+                count_data.sort(function (a, b) {
+                    return d3.descending(a.male_judge, b.male_judge);
+                });
+
+
+                const blueColor = "#87cefa";
+                const pinkColor = "rgb(240, 98, 146)";
+
+
+                var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+                    width = 2000 - margin.left - margin.right,
+                    height = 800 - margin.top - margin.bottom;
+
+                // removing the previous svg element
+                d3.select("#chart svg").remove();
+                var svg = d3.select("#chart")
+                    .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom + margin.bottom + margin.bottom + margin.bottom)
+                    .append("g")
+                    .attr("transform",
+                        "translate(" + margin.left + "," + margin.top + ")");
+
+                // legend
+                const legend = svg.append("g")
+                    .attr("transform", "translate(" + (width - 100) + "," + 50 + ")");
+
+                legend.append("rect")
+                    .attr("width", 20)
+                    .attr("height", 20)
+                    .attr("fill", blueColor);
+
+                legend.append("rect")
+                    .attr("width", 20)
+                    .attr("height", 20)
+                    .attr("y", 30)
+                    .attr("fill", pinkColor);
+
+                legend.append("text")
+                    .attr("x", 20)
+                    .attr("y", 10)
+                    .text("Non-Female")
+                    .attr("alignment-baseline", "middle");
+
+                legend.append("text")
+                    .attr("x", 20)
+                    .attr("y", 40)
+                    .text("Female")
+                    .attr("alignment-baseline", "middle");
+
+                svg.append("text")
+                    .attr("class", "heading-name")
+                    .attr("x", width / 2)
+                    .attr("y", 50)
+                    .text(stateName.toUpperCase() + " (Districts vs Number of Judges)")
+
+                // setting up range, domanin of x and y-axis
+                var x = d3.scaleBand()
+                    .range([0, width])
+                    .domain(count_data.map(function (d) { return d.district_name; }))
+                    .padding(0.2);
+                var y = d3.scaleLinear()
+                    .range([height, 0])
+                    .domain([0, d3.max(count_data, function (d) { return d.female_judge + d.male_judge; })]);
+
+                // adding the x-axis
+                svg.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x))
+                    .selectAll("text")
+                    .attr("transform", "rotate(45)")
+                    .style("text-anchor", "start");
+
+                // adding the y-axis
+                svg.append("g")
+                    .call(d3.axisLeft(y));
+
+                // gradient for male-bar
+                var gradient_m = svg.append("defs")
+                    .append("linearGradient")
+                    .attr("id", "gradient_m")
+                    .attr("gradientUnits", "userSpaceOnUse")
+                    .attr("x1", 0).attr("y1", 0)
+                    .attr("x2", 0).attr("y2", height);
+
+                gradient_m.append("stop")
+                    .attr("offset", "0%")
+                    .attr("stop-color", "#00bfff"); // blue
+
+                gradient_m.append("stop")
+                    .attr("offset", "50%")
+                    .attr("stop-color", "#3cb0fd"); // blue
+
+                gradient_m.append("stop")
+                    .attr("offset", "100%")
+                    .attr("stop-color", "#87cefa"); // blue
+
+                // gradient for female-bar
+                var gradient_f = svg.append("defs")
+                    .append("linearGradient")
+                    .attr("id", "gradient_f")
+                    .attr("gradientUnits", "userSpaceOnUse")
+                    .attr("x1", 0).attr("y1", 0)
+                    .attr("x2", 0).attr("y2", height);
+
+                gradient_f.append("stop")
+                    .attr("offset", "0%")
+                    .attr("stop-color", "#f78ea7"); // pink
+
+                gradient_f.append("stop")
+                    .attr("offset", "50%")
+                    .attr("stop-color", "#ff8c94"); // pink
+
+                gradient_f.append("stop")
+                    .attr("offset", "100%")
+                    .attr("stop-color", "#f649a7");  // pink
+
+                // Add the bars for female judges
+                svg.selectAll(".female-bar")
+                    .data(count_data)
+                    .enter().append("rect")
+                    .attr("class", "female-bar")
+                    .attr("x", function (d) { return x(d.district_name); })
+                    .attr("y", function (d) { return y(d.female_judge); })
+                    .attr("width", x.bandwidth() / 2)
+                    .attr("height", function (d) { return height - y(d.female_judge); })
+                    .attr("filter", "url(#drop-shadow)")
+                    .on("click", function (event, d) {
+                        createStateBarChart();
+                    });
+
+                // Add the bars for male judges
+                svg.selectAll(".male-bar")
+                    .data(count_data)
+                    .enter().append("rect")
+                    .attr("class", "male-bar")
+                    .attr("x", function (d) { return x(d.district_name) + x.bandwidth() / 2; })
+                    .attr("y", function (d) { return y(d.male_judge); })
+                    .attr("width", x.bandwidth() / 2)
+                    .attr("height", function (d) { return height - y(d.male_judge); })
+                    .attr("filter", "url(#drop-shadow)")
+                    .on("click", function (event, d) {
+                        createStateBarChart();
+                    });
+
+
+                // shadow for 3d effect
+                var shadow = svg.append("defs")
+                    .append("filter")
+                    .attr("id", "drop-shadow")
+                    .attr("x", "-50%")
+                    .attr("y", "-50%")
+                    .attr("width", "200%")
+                    .attr("height", "200%");
+
+                shadow.append("feGaussianBlur")
+                    .attr("in", "SourceAlpha")
+                    .attr("stdDeviation", 5)
+                    .attr("result", "blur");
+
+                shadow.append("feOffset")
+                    .attr("in", "blur")
+                    .attr("dx", 3)
+                    .attr("dy", 3)
+                    .attr("result", "offsetBlur");
+
+
+                shadow.append("feComponentTransfer")
+                    .append("feFuncA")
+                    .attr("type", "linear")
+                    .attr("slope", 0.7);
+
+                var feMerge = shadow.append("feMerge");
+
+                feMerge.append("feMergeNode")
+                    .attr("in", "offsetBlur");
+                feMerge.append("feMergeNode")
+                    .attr("in", "SourceGraphic");
+
+            }).catch(function (error) {
+                console.log(error);
+            })
+        };
+    </script>
+    <script>
+        createStateBarChart();
+        function createStateBarChart() {
+            d3.csv("merge.csv").then(function (data) {
+                var counts = d3.rollup(data,
+                    v => {
+                        const count_map = new Map();
+                        count_map.set("male", v.filter(d => d.female_judge === "0 nonfemale").length);
+                        count_map.set("female", v.filter(d => d.female_judge === "1 female").length);
+                        return count_map;
+                    },
+                    d => d.state_name
+                );
+                var count_data = Array.from(counts, function ([state_name, count_map]) {
+                    var total_f = 0;
+                    var total_m = 0;
+                    count_map.forEach(function (value, key) {
+                        if (key === "female") {
+                            total_f = total_f + value;
+                        }
+                        else if (key === "male") {
+                            total_m = total_m + value;
+                        }
+                    });
+                    console.log(`State: ${state_name}, Male Judges: ${total_m}, Female Judges: ${total_f}`);
+                    return { "state_name": state_name, "female_judge": total_f, "male_judge": total_m };
+                });
+
+
+                count_data.sort(function (a, b) {
+                    return d3.descending(a.male_judge, b.male_judge);
+                });
+
+
+                const blueColor = "#87cefa";
+                const pinkColor = "rgb(240, 98, 146)";
+
+                var margin = { top: 10, right: 30, bottom: 30, left: 60 },
+                    width = 2000 - margin.left - margin.right,
+                    height = 800 - margin.top - margin.bottom;
+
+
+                // removing the previous svg element
+                d3.select("#chart svg").remove();
+                var svg = d3.select("#chart")
+                    .append("svg")
+                    .attr("width", width + margin.left + margin.right)
+                    .attr("height", height + margin.top + margin.bottom + margin.bottom + margin.bottom)
+                    .append("g")
+                    .attr("transform",
+                        "translate(" + margin.left + "," + margin.top + ")");
+
+                // legend
+                const legend = svg.append("g")
+                    .attr("transform", "translate(" + (width - 100) + "," + 50 + ")");
+
+                legend.append("rect")
+                    .attr("width", 20)
+                    .attr("height", 20)
+                    .attr("fill", blueColor);
+
+                legend.append("rect")
+                    .attr("width", 20)
+                    .attr("height", 20)
+                    .attr("y", 30)
+                    .attr("fill", pinkColor);
+
+                legend.append("text")
+                    .attr("x", 20)
+                    .attr("y", 10)
+                    .text("Male")
+                    .attr("alignment-baseline", "middle");
+
+                legend.append("text")
+                    .attr("x", 20)
+                    .attr("y", 40)
+                    .text("Female")
+                    .attr("alignment-baseline", "middle");
+
+                svg.append("text")
+                    .attr("class", "heading-name")
+                    .attr("x", width / 2)
+                    .attr("y", 50)
+                    .text("INDIA (States vs Number of Judges)");
+
+
+                // setting up range, domanin of x and y-axis
+                var x = d3.scaleBand()
+                    .range([0, width])
+                    .domain(count_data.map(function (d) { return d.state_name; }))
+                    .padding(0.2);
+                var y = d3.scaleLinear()
+                    .range([height, 0])
+                    .domain([0, d3.max(count_data, function (d) { return d.female_judge + d.male_judge; })]);
+
+                // adding the x-axis
+                svg.append("g")
+                    .attr("transform", "translate(0," + height + ")")
+                    .call(d3.axisBottom(x))
+                    .selectAll("text")
+                    .attr("transform", "rotate(45)")
+                    .style("text-anchor", "start");
+
+                // adding the y-axis
+                svg.append("g")
+                    .call(d3.axisLeft(y))
+
+                // gradient for male-bar
+                var gradient_m = svg.append("defs")
+                    .append("linearGradient")
+                    .attr("id", "gradient_m")
+                    .attr("gradientUnits", "userSpaceOnUse")
+                    .attr("x1", 0).attr("y1", 0)
+                    .attr("x2", 0).attr("y2", height);
+
+                gradient_m.append("stop")
+                    .attr("offset", "0%")
+                    .attr("stop-color", "#00bfff"); // blue
+
+                gradient_m.append("stop")
+                    .attr("offset", "50%")
+                    .attr("stop-color", "#3cb0fd"); // blue
+
+                gradient_m.append("stop")
+                    .attr("offset", "100%")
+                    .attr("stop-color", "#87cefa"); // blue
+
+                // gradient for female-bar
+                var gradient_f = svg.append("defs")
+                    .append("linearGradient")
+                    .attr("id", "gradient_f")
+                    .attr("gradientUnits", "userSpaceOnUse")
+                    .attr("x1", 0).attr("y1", 0)
+                    .attr("x2", 0).attr("y2", height);
+
+                gradient_f.append("stop")
+                    .attr("offset", "0%")
+                    .attr("stop-color", "#f78ea7"); // pink
+
+                gradient_f.append("stop")
+                    .attr("offset", "50%")
+                    .attr("stop-color", "#ff8c94"); // pink
+
+                gradient_f.append("stop")
+                    .attr("offset", "100%")
+                    .attr("stop-color", "#f649a7"); // pink
+
+                // Add the bars for female judges
+                svg.selectAll(".female-bar")
+                    .data(count_data)
+                    .enter().append("rect")
+                    .attr("class", "female-bar")
+                    .attr("x", function (d) { return x(d.state_name); })
+                    .attr("y", function (d) { return y(d.female_judge); })
+                    .attr("width", x.bandwidth() / 2)
+                    .attr("height", function (d) { return height - y(d.female_judge); })
+                    .attr("filter", "url(#drop-shadow)")
+                    .on("click", function (event, d) {
+                        console.log("Clicked on state: " + d.state_name);
+                        createDistrictBarChart(d.state_name);
+                    });
+
+                // Add the bars for male judges
+                svg.selectAll(".male-bar")
+                    .data(count_data)
+                    .enter().append("rect")
+                    .attr("class", "male-bar")
+                    .attr("x", function (d) { return x(d.state_name) + x.bandwidth() / 2; })
+                    .attr("y", function (d) { return y(d.male_judge); })
+                    .attr("width", x.bandwidth() / 2)
+                    .attr("height", function (d) { return height - y(d.male_judge); })
+                    .attr("filter", "url(#drop-shadow)")
+                    .on("click", function (event, d) {
+                        console.log("Clicked on state: " + d.state_name);
+                        createDistrictBarChart(d.state_name);
+                    });
+
+                // shadow for 3d effect
+                var shadow = svg.append("defs")
+                    .append("filter")
+                    .attr("id", "drop-shadow")
+                    .attr("x", "-50%")
+                    .attr("y", "-50%")
+                    .attr("width", "200%")
+                    .attr("height", "200%");
+
+                shadow.append("feGaussianBlur")
+                    .attr("in", "SourceAlpha")
+                    .attr("stdDeviation", 5)
+                    .attr("result", "blur");
+
+                shadow.append("feOffset")
+                    .attr("in", "blur")
+                    .attr("dx", 3)
+                    .attr("dy", 3)
+                    .attr("result", "offsetBlur");
+
+
+                shadow.append("feComponentTransfer")
+                    .append("feFuncA")
+                    .attr("type", "linear")
+                    .attr("slope", 0.7);
+
+                var feMerge = shadow.append("feMerge");
+
+                feMerge.append("feMergeNode")
+                    .attr("in", "offsetBlur");
+                feMerge.append("feMergeNode")
+                    .attr("in", "SourceGraphic");
+
+            }).catch(function (error) {
+                console.log(error);
+            })
+        };
+    </script>
+</body>
+
+</html>
